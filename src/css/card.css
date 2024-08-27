@@ -1,0 +1,17 @@
+.card button {
+  border: none;
+  background-color: #005962;
+}
+
+.card button:hover {
+  background-color: #033f45;
+}
+
+.description {
+  color: #005962;
+  margin: 0;
+}
+
+.card-img {
+  margin-bottom: 15px;
+}

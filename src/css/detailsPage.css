@@ -1,0 +1,78 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.image-container {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.image-container img {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 600px;
+  height: 350px;
+}
+
+.content-container {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+.details-container {
+  padding-top: 20px;
+}
+
+.details-container h3 {
+  text-align: left;
+  margin-left: 80px;
+}
+
+.details-container p {
+  margin-right: 80px;
+  margin-left: 80px;
+  text-align: justify;
+}
+
+.landmarks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .image-container,
+  .content-container,
+  .details-container {
+    flex: 0 0 100%;
+  }
+
+  .content-container {
+    padding-top: 20px;
+    margin-left: 20px;
+  }
+
+  .details-container p {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .details-container h3 {
+    margin-left: 20px;
+  }
+}

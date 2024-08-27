@@ -1,0 +1,69 @@
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination li {
+  margin: 0 8px;
+  cursor: pointer;
+  color: white;
+}
+
+.pagination li a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background-color: #006064;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.pagination li a:hover {
+  background-color: #004d40;
+  border-color: #004d40;
+}
+
+.pagination .active a {
+  background-color: #004d40;
+  border-color: #004d40;
+  color: white;
+}
+
+.pagination .disabled a {
+  color: #ccc;
+  cursor: not-allowed;
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+}
+
+.pagination .previous a,
+.pagination .next a {
+  font-weight: bold;
+}
+
+.pagination .previous a:hover,
+.pagination .next a:hover {
+  background-color: #004d40;
+  border-color: #004d40;
+  color: white;
+}

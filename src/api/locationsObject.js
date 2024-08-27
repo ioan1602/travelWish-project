@@ -1,0 +1,323 @@
+const destinations = [
+    {
+      id: '1',
+      city: "Paris",
+      image: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSup4FxP54mRgNEtJRjXQOt0GwCf2Wjh-gysqkAy12T5eQCYnwSqDAGwo3HUvId31uQ5t3ZIGLGFDGePQJS-uWv4mpRC1v4ywhX8IPecg",
+      country: "France",
+      description: "The city of lights, known for its art, fashion, and culture.",
+      landmarks: ["Eiffel Tower", "Louvre Museum", "Notre-Dame Cathedral"],
+      activities: ["Cruise on the Seine", "Visit art galleries", "Explore cafes"],
+      specialRecommendation: "Visit during sunset to see the Eiffel Tower sparkle.",
+      detailedDescription: "Paris, the City of Light, is renowned for its elegance and charm. The Eiffel Tower, an iconic symbol, offers stunning views of the cityscape, especially during sunset when it sparkles with lights. The Louvre Museum, home to the Mona Lisa and countless other masterpieces, is a must-visit for art enthusiasts. Notre-Dame Cathedral, a masterpiece of Gothic architecture, stands majestically on the Île de la Cité. A Seine River cruise provides a unique perspective of Paris's landmarks. Explore charming cafes and bustling art galleries to fully experience the city's cultural richness."
+    },
+    {
+      id: '2',
+      city: "Tokyo",
+      image: "https://media-s3-us-east-1.ceros.com/reuters-media/images/2023/01/05/b48e66e44840a1e73bcc73afc2aa3a3c/image.png?imageOpt=1&fit=bounds&width=1617&crop=2159,1395,x0,y0",
+      country: "Japan",
+      description: "A bustling metropolis blending tradition with modernity.",
+      landmarks: ["Tokyo Tower", "Shibuya Crossing", "Senso-ji Temple"],
+      activities: ["Explore anime culture in Akihabara", "Visit Shinto shrines", "Experience Japanese cuisine"],
+      specialRecommendation: "Try sushi at the Tsukiji Outer Market.",
+      detailedDescription: "Tokyo, a vibrant and sprawling metropolis, merges the ancient with the contemporary. Tokyo Tower, reminiscent of the Eiffel Tower, offers panoramic views of the city. Shibuya Crossing, one of the world's busiest pedestrian intersections, epitomizes Tokyo's energy. Senso-ji Temple, Tokyo's oldest temple, provides a glimpse into traditional Japan amidst the bustling Asakusa district. In Akihabara, explore anime and electronics culture, while the city's Shinto shrines offer a tranquil retreat. The Tsukiji Outer Market is the perfect place to savor fresh sushi and other Japanese delicacies."
+    },
+    {
+      id: '3',
+      city: "New York",
+      image: "https://cdn.britannica.com/61/93061-050-99147DCE/Statue-of-Liberty-Island-New-York-Bay.jpg",
+      country: "USA",
+      description: "The city that never sleeps, full of iconic landmarks and vibrant culture.",
+      landmarks: ["Statue of Liberty", "Central Park", "Times Square"],
+      activities: ["Watch a Broadway show", "Walk across the Brooklyn Bridge", "Visit museums"],
+      specialRecommendation: "Take a helicopter tour for stunning city views.",
+      detailedDescription: "New York City, often called 'The City That Never Sleeps,' offers a dynamic and bustling atmosphere. The Statue of Liberty, a symbol of freedom, welcomes visitors to Liberty Island. Central Park provides a green oasis in the heart of Manhattan, ideal for a leisurely stroll or a relaxing picnic. Times Square, known for its bright lights and Broadway theaters, is a hub of entertainment. Walking across the Brooklyn Bridge offers iconic views of the skyline. Museums like the Metropolitan Museum of Art and the Museum of Modern Art house world-class collections. A helicopter tour provides an unforgettable aerial perspective of the city's landmarks."
+    },
+    {
+      id: '4',
+      city: "Rome",
+      image: "https://tourismmedia.italia.it/is/image/mitur/20220127150143-colosseo-roma-lazio-shutterstock-756032350-1?wid=1600&hei=900&fit=constrain,1&fmt=webp",
+      country: "Italy",
+      description: "The eternal city, rich in history and architectural marvels.",
+      landmarks: ["Colosseum", "Vatican City", "Trevi Fountain"],
+      activities: ["Explore ancient ruins", "Taste authentic Italian pizza", "Attend a papal audience"],
+      specialRecommendation: "Visit the Colosseum at night for a unique experience.",
+      detailedDescription: "Rome, the Eternal City, is a treasure trove of historical and architectural wonders. The Colosseum, a grand amphitheater, offers a glimpse into ancient Roman entertainment. Vatican City, the world’s smallest independent state, is home to St. Peter’s Basilica and the Sistine Chapel, renowned for Michelangelo's frescoes. The Trevi Fountain, a Baroque masterpiece, invites visitors to toss a coin and make a wish. Explore ancient ruins like the Roman Forum and Palatine Hill. Authentic Italian pizza and gelato are a must-try. Attend a papal audience for a unique spiritual experience."
+    },
+    {
+      id: '5',
+      city: "Sydney",
+      image: "https://media.tatler.com/photos/6141d37b9ce9874a3e40107d/16:9/w_2560%2Cc_limit/social_crop_sydney_opera_house_gettyimages-869714270.jpg",
+      country: "Australia",
+      description: "A vibrant city known for its stunning harbor and beaches.",
+      landmarks: ["Sydney Opera House", "Harbour Bridge", "Bondi Beach"],
+      activities: ["Surf at Bondi Beach", "Climb the Harbour Bridge", "Visit Taronga Zoo"],
+      specialRecommendation: "Take a ferry to Manly for a scenic coastal walk.",
+      detailedDescription: "Sydney, a vibrant Australian city, is celebrated for its iconic harbor and natural beauty. The Sydney Opera House, with its distinctive sail-like design, hosts world-class performances and offers breathtaking views of the harbor. The Harbour Bridge, another iconic structure, can be climbed for panoramic city views. Bondi Beach, famous for its surf and golden sands, is perfect for sunbathing and surfing. A ferry ride to Manly provides scenic coastal vistas and access to beautiful beaches. Taronga Zoo offers a chance to see native Australian wildlife. Sydney’s dynamic culture and outdoor activities make it a top destination."
+    },
+    {
+      id: '6',
+      city: "Rio de Janeiro",
+      image: "https://www.costacruises.co.uk/content/dam/costa/costa-magazine/article-images/what-to-see-in-rio-de-janeiro/rio-de-janeiro-panorama_YuJas-Shutterstock_1.jpg.image.1296.974.high.jpg",
+      country: "Brazil",
+      description: "A city of samba, beaches, and breathtaking views.",
+      landmarks: ["Christ the Redeemer", "Sugarloaf Mountain", "Copacabana Beach"],
+      activities: ["Join a samba parade", "Hang glide over the city", "Enjoy beach football"],
+      specialRecommendation: "Visit during Carnival for an unforgettable experience.",
+      detailedDescription: "Rio de Janeiro, known for its vibrant culture and stunning natural landscapes, is a city that pulses with energy. The Christ the Redeemer statue, perched atop Corcovado Mountain, is a global icon and offers panoramic views of the city. Sugarloaf Mountain provides a cable car ride with breathtaking vistas of Rio’s coastline. Copacabana Beach, famous for its lively atmosphere and golden sands, is perfect for sunbathing and beach football. Joining a samba parade during Carnival immerses visitors in Brazil’s festive spirit. Hang gliding offers a unique way to experience Rio’s dramatic scenery. Rio’s dynamic environment and cultural richness make it a must-visit destination."
+    },
+    {
+      id: '7',
+      city: "Cape Town",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHkwau0ta0G32_P1Q1pdSU72T96uZtL_rFHg&s",
+      country: "South Africa",
+      description: "A city with stunning landscapes and rich cultural heritage.",
+      landmarks: ["Table Mountain", "Robben Island", "Cape Point"],
+      activities: ["Hike up Table Mountain", "Tour the Winelands", "Visit penguins at Boulders Beach"],
+      specialRecommendation: "Take a drive along Chapman's Peak for spectacular views.",
+      detailedDescription: "Cape Town, renowned for its stunning natural beauty and rich cultural heritage, is a must-visit destination. Table Mountain, a flat-topped mountain, offers spectacular views over the city and the ocean. Robben Island, where Nelson Mandela was imprisoned, provides historical insight into South Africa’s struggle for freedom. Cape Point, at the southern tip of the Cape Peninsula, features rugged cliffs and scenic beauty. Hiking up Table Mountain or taking a scenic drive along Chapman's Peak offers breathtaking landscapes. A tour of the Winelands introduces visitors to South Africa’s renowned wine regions, while Boulders Beach allows for unique encounters with a colony of African penguins."
+    },
+    {
+      id: '8',
+      city: "Bangkok",
+      image: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTFRr84OL7wCfGBTCFbsrgqiYZBY_gm-oLvmQKUtMe2s_KMlWiRAUNFMpNt8MowrUbVy8MJgAf6G955ft0S1sizjaiqxR80qLL8rmwTMUk",
+      country: "Thailand",
+      description: "A city that blends modernity with traditional temples and vibrant street life.",
+      landmarks: ["Grand Palace", "Wat Arun", "Chatuchak Market"],
+      activities: ["Explore floating markets", "Take a tuk-tuk ride", "Enjoy Thai street food"],
+      specialRecommendation: "Visit the rooftop bars for a view of the city skyline.",
+      detailedDescription: "Bangkok, Thailand's bustling capital, is renowned for its vibrant street life and rich cultural heritage. The city boasts majestic landmarks like the Grand Palace and Wat Arun, showcasing intricate Thai architecture. Visitors can explore the lively Chatuchak Market and experience the thrill of a tuk-tuk ride. The city's street food scene offers a feast of flavors, from spicy curries to delectable pad Thai. Rooftop bars provide stunning views of the skyline, making Bangkok a city of contrasts where tradition meets modernity."
+    },
+    {
+      id: '9',
+      city: "Dubai",
+      image: "https://images.pexels.com/photos/162031/dubai-tower-arab-khalifa-162031.jpeg",
+      country: "UAE",
+      description: "A city of futuristic architecture and luxury shopping.",
+      landmarks: ["Burj Khalifa", "Palm Jumeirah", "Dubai Mall"],
+      activities: ["Desert safari", "Visit water parks", "Dine in world-class restaurants"],
+      specialRecommendation: "Watch the fountain show at the Dubai Mall.",
+      detailedDescription: "Dubai, a city renowned for its futuristic skyline and luxury, offers a range of remarkable experiences. The Burj Khalifa, the world’s tallest building, features an observation deck with unparalleled views of the city. Palm Jumeirah, an artificial archipelago, is home to upscale resorts and entertainment options. The Dubai Mall, one of the world’s largest shopping centers, includes attractions such as an indoor ice rink and an aquarium. Enjoy luxury experiences at world-class resorts or embark on a desert safari to explore the stunning desert landscapes. Dubai’s blend of modernity and tradition provides a unique and unforgettable visit."
+    },
+    {
+      id: '10',
+      city: "Istanbul",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9weWXuSmCR9ZqGANH0e3g09plnViSPTU_kg&s",
+      country: "Turkey",
+      description: "A city straddling two continents, with a rich blend of cultures.",
+      landmarks: ["Hagia Sophia", "Blue Mosque", "Topkapi Palace"],
+      activities: ["Cruise on the Bosphorus", "Explore bazaars", "Sample Turkish delight"],
+      specialRecommendation: "Visit a traditional Turkish bath (hamam).",
+      detailedDescription: "Istanbul, a city that bridges Europe and Asia, is steeped in history and cultural diversity. The Hagia Sophia, once a church and mosque, now a museum, showcases Byzantine and Ottoman architecture. Topkapi Palace, the former residence of Ottoman sultans, is a treasure trove of artifacts and stunning courtyards. The Blue Mosque, with its distinctive blue tiles and six minarets, is an architectural marvel. Explore the Grand Bazaar and Spice Bazaar for a sensory overload of colors and scents. A Bosphorus cruise provides scenic views of the city’s skyline, while traditional Turkish baths offer relaxation and cultural immersion. Enjoy a traditional Turkish breakfast at a local café to complete your experience."
+    },
+    {
+      id: '11',
+      city: "Moscow",
+      image: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcSadKmUJVPfKheXzv8gc9nUJOEkrpb97OAnhJJq0UNNj-ex8nK-FQa2gBY_77FuiOJfBV33d0Uh4_Pk8w1vFV2XqEpBQYcH-ZApxRycOQ",
+      country: "Russia",
+      description: "A city of history, power, and stunning architecture.",
+      landmarks: ["Red Square", "Kremlin", "St. Basil's Cathedral"],
+      activities: ["Visit museums", "Attend the Bolshoi Ballet", "Explore metro stations"],
+      specialRecommendation: "Visit during winter for the magical snow-covered scenery.",
+      detailedDescription: "Moscow, Russia's sprawling capital, is a city of monumental history and grand architecture. Red Square, home to the iconic St. Basil's Cathedral and the Kremlin, is a focal point of Russian heritage. Visitors can explore the opulent Bolshoi Theatre or delve into the art at the Tretyakov Gallery. The city's metro stations are architectural marvels, reflecting its Soviet past. Moscow's winter landscape, with snow-covered streets and festive markets, offers a magical experience, adding to the city's timeless charm."
+    },
+    {
+      id: '12',
+      city: "Hong Kong",
+      image: "https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSDHlgO4Y86d90E0eO53fLV4G3Ff8dM2aQDY7NNhwkS_kl8f58IyAox2PyWdC3RqWC1fQmr_IxuYyxFCAOQKIiGEZJ1f1YqsOsqBNQ7OA",
+      country: "China",
+      description: "A bustling city known for its skyline and vibrant street markets.",
+      landmarks: ["Victoria Peak", "Tian Tan Buddha", "Hong Kong Disneyland"],
+      activities: ["Shop in street markets", "Take the Star Ferry", "Explore theme parks"],
+      specialRecommendation: "Try dim sum at a traditional tea house.",
+      detailedDescription: "Hong Kong is a dynamic city known for its impressive skyline and vibrant markets. Victoria Peak offers breathtaking views of the city and harbor, while the bustling street markets provide an array of goods and local delicacies. The Tian Tan Buddha, located on Lantau Island, is a significant cultural landmark. Visitors can explore the attractions at Hong Kong Disneyland or take a scenic ride on the Star Ferry. The city’s diverse food scene, from dim sum to international cuisine, complements its rich cultural tapestry."
+    },
+    {
+      id: '13',
+      city: "Los Angeles",
+      image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/04/80/53/caption.jpg?w=1100&h=600&s=1",
+      country: "USA",
+      description: "A city of dreams, home to Hollywood and beautiful beaches.",
+      landmarks: ["Hollywood Sign", "Santa Monica Pier", "Griffith Observatory"],
+      activities: ["Tour movie studios", "Walk the Hollywood Walk of Fame", "Surf at Venice Beach"],
+      specialRecommendation: "Drive along the Pacific Coast Highway for stunning ocean views.",
+      detailedDescription: "Los Angeles, the entertainment capital of the world, is famous for its iconic Hollywood sign and glamorous lifestyle. The city offers a mix of beautiful beaches, like Santa Monica, and cultural landmarks such as the Getty Center. Visitors can explore the vibrant arts scene or enjoy the star-studded Hollywood Walk of Fame. Los Angeles also features stunning coastal drives along the Pacific Coast Highway. With its diverse neighborhoods and outdoor activities, LA provides a unique blend of relaxation and excitement."
+    },
+    {
+      id: '14',
+      city: "Barcelona",
+      image: "https://static.independent.co.uk/2023/03/10/14/iStock-1320014700.jpg",
+      country: "Spain",
+      description: "A city of art, architecture, and vibrant street life.",
+      landmarks: ["Sagrada Familia", "Park Güell", "La Rambla"],
+      activities: ["Explore Gaudi's works", "Relax on the beach", "Enjoy tapas and sangria"],
+      specialRecommendation: "Visit the Magic Fountain for a spectacular light and music show.",
+      detailedDescription: "Barcelona, a vibrant city with a unique blend of architectural innovation and rich culture, is a must-visit destination. The Sagrada Familia, Antoni Gaudí’s unfinished masterpiece, features intricate details and towering spires. Park Güell, another Gaudí creation, showcases colorful mosaics and whimsical structures. La Rambla, a bustling street in the heart of the city, is perfect for strolling, shopping, and people-watching. The Gothic Quarter offers a labyrinth of historic streets and charming squares. Relax on the city’s beaches or savor local tapas. Experience traditional flamenco performances to immerse yourself in Spanish culture."
+    },
+    {
+      id: '15',
+      city: "Cairo",
+      image: "https://i0.wp.com/www.touristegypt.com/wp-content/uploads/2023/03/giza-pyramids-cairo-egypt-with-palm.jpg?fit=2424%2C1500&ssl=1",
+      country: "Egypt",
+      description: "A city of ancient wonders and rich history.",
+      landmarks: ["Pyramids of Giza", "Egyptian Museum", "Khan El Khalili"],
+      activities: ["Camel ride around the pyramids", "Cruise on the Nile", "Shop in traditional markets"],
+      specialRecommendation: "Watch the sunset over the pyramids for an unforgettable view.",
+      detailedDescription: "Cairo, Egypt's sprawling capital, is steeped in ancient history and vibrant culture. The city is home to the legendary Pyramids of Giza and the Sphinx, offering a glimpse into ancient Egyptian civilization. The Egyptian Museum houses an extensive collection of artifacts, including Tutankhamun's treasures. Cairo’s bustling markets, like Khan El Khalili, are perfect for experiencing local crafts and cuisine. A Nile cruise provides a serene escape from the city's hustle, adding to Cairo's rich historical tapestry."
+    },
+    {
+      id: '16',
+      city: "Amsterdam",
+      image: "https://cdn.britannica.com/30/180130-138-4FC01CDD/Overview-Amsterdam.jpg?w=800&h=450&c=crop",
+      country: "Netherlands",
+      description: "A city of canals, art, and a vibrant nightlife.",
+      landmarks: ["Anne Frank House", "Van Gogh Museum", "Rijksmuseum"],
+      activities: ["Cycle through the city", "Take a canal cruise", "Visit coffee shops"],
+      specialRecommendation: "Visit the Keukenhof Gardens during tulip season.",
+      detailedDescription: "Amsterdam, famous for its picturesque canals and rich cultural scene, offers a unique urban experience. The Anne Frank House, where Anne Frank wrote her diary during World War II, provides a moving historical insight. The Van Gogh Museum houses the world’s largest collection of Van Gogh's works, while the Rijksmuseum showcases Dutch masterpieces from the Golden Age. A canal cruise offers a different perspective of the city’s architecture and charm. Rent a bike to explore Amsterdam’s charming neighborhoods and vibrant cultural spots. The city’s blend of history, art, and lively atmosphere makes it a compelling destination."
+    },
+    {
+      id: '17',
+      city: "Mexico City",
+      image: "https://i.natgeofe.com/n/6c02ad5a-977b-4f12-b9c0-02ffb0736e07/metropolitan-cathedral-zocalo-mexico-city.JPG",
+      country: "Mexico",
+      description: "A city rich in history, culture, and delicious cuisine.",
+      landmarks: ["Zócalo", "Frida Kahlo Museum", "Teotihuacan"],
+      activities: ["Explore ancient ruins", "Enjoy street food", "Visit art galleries"],
+      specialRecommendation: "Try traditional Mexican dishes in a local market.",
+      detailedDescription: "Mexico City, a vibrant metropolis, is rich in history, culture, and culinary delights. The Zócalo, the city's main square, is surrounded by historic landmarks including the Metropolitan Cathedral and the National Palace. The Frida Kahlo Museum offers a glimpse into the life of one of Mexico’s most famous artists. Nearby, the ancient ruins of Teotihuacan showcase the grandeur of pre-Hispanic civilizations. Mexico City’s street food scene, combined with its art and history, makes it a captivating destination."
+    },
+    {
+      id: '18',
+      city: "Seoul",
+      image: "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcT0aDV8ZyvMR_LZlRbGeD-E6Rbb0Um3kGRTpvY7gHNOU7mE3WzmA6IHQPwp_j_1lcaKxCFFJu9f2gfbLWpH2C1yZnkTwyQakXHiOVU5ng",
+      country: "South Korea",
+      description: "A dynamic city where modern technology meets ancient traditions.",
+      landmarks: ["Gyeongbokgung Palace", "N Seoul Tower", "Bukchon Hanok Village"],
+      activities: ["Shop in Myeongdong", "Visit traditional palaces", "Experience Korean BBQ"],
+      specialRecommendation: "Explore the vibrant nightlife in Hongdae.",
+      detailedDescription: "Seoul, South Korea's bustling capital, merges modern technology with traditional charm. The city features historical sites such as Gyeongbokgung Palace and the vibrant Bukchon Hanok Village. N Seoul Tower offers panoramic views of the cityscape, while Myeongdong is a shopping haven. Visitors can savor Korean BBQ and explore the dynamic nightlife in areas like Hongdae. Seoul’s blend of old and new creates a unique cultural experience, appealing to both history buffs and modern explorers."
+    },
+    {
+      id: '19',
+      city: "Lisbon",
+      image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTvXCEUtbT0RkxT9yFfcHLYQyJm--V4vv3SyUTYeYP-CmoupaWAmE28dMRw5AUYQ-opbPtGJHTw4SKS0pI20nWOgPWPepg4ckjjFyHR7w",
+      country: "Portugal",
+      description: "A city of stunning views, historical sites, and delicious cuisine.",
+      landmarks: ["Belém Tower", "Jerónimos Monastery", "Alfama District"],
+      activities: ["Ride Tram 28", "Listen to Fado music", "Taste Pastel de Nata"],
+      specialRecommendation: "Watch the sunset from Miradouro da Senhora do Monte.",
+      detailedDescription: "Lisbon, a coastal city with a blend of historic charm and contemporary flair, is a delightful destination. Belem Tower, a historic fortress on the banks of the Tagus River, is a symbol of Lisbon's maritime heritage. Jerónimos Monastery, with its intricate Manueline architecture, is a UNESCO World Heritage site. The Lisbon Oceanarium, one of the largest in Europe, offers an impressive display of marine life. Ride the historic tram 28 through the city’s hilly streets, explore vibrant neighborhoods like Alfama and Bairro Alto, and indulge in local pastries such as pastéis de nata. Lisbon’s mix of tradition and modernity creates a memorable experience."
+    },
+    {
+      id: '20',
+      city: "Santorini",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb9DcB8zPWS3cmvIMXvoszHQIuzsNfs0oZEQ&s",
+      country: "Greece",
+      description: "An idyllic island known for its white-washed buildings and stunning sunsets.",
+      landmarks: ["Oia Village", "Red Beach", "Akrotiri Ruins"],
+      activities: ["Sail around the island", "Explore volcanic beaches", "Taste local wines"],
+      specialRecommendation: "Enjoy the sunset from a cliffside restaurant in Oia.",
+      detailedDescription: "Santorini, a picturesque Greek island, is renowned for its stunning sunsets and whitewashed architecture. The island's charming villages, like Oia, offer breathtaking views over the caldera. Red Beach and the archaeological site of Akrotiri are must-see attractions. Santorini's local wines and cuisine enhance the island's allure. Whether sailing around the volcanic islands or relaxing in cliffside restaurants, Santorini offers a serene and idyllic escape."
+    },
+    {
+      id: '21',
+      city: "Marrakech",
+      image: "https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcRF25llPnzVBbZCpaLgWk1I9N537w5s8OTVwxVNvDn5vbw9DuPnFyaieIBNDLCersKVM7qrcta7PqWkeVVJk2pH9oyp7Dm5QyqzJ6apNA",
+      country: "Morocco",
+      description: "A city of vibrant markets, stunning palaces, and rich culture.",
+      landmarks: ["Jemaa el-Fnaa", "Bahia Palace", "Koutoubia Mosque"],
+      activities: ["Shop in the souks", "Relax in a riad", "Explore the Majorelle Garden"],
+      specialRecommendation: "Visit a traditional hammam for a unique spa experience.",
+      detailedDescription: "Marrakech, a vibrant Moroccan city, is known for its bustling souks and stunning palaces. The medina’s maze-like streets lead to landmarks such as Jemaa el-Fnaa and the ornate Bahia Palace. The city’s rich cultural scene is reflected in its traditional riads and the serene Majorelle Garden. Visitors can explore colorful markets and enjoy Moroccan cuisine. Marrakech's blend of historical charm and lively street life creates a unique and immersive travel experience."
+    },
+    {
+      id: '22',
+      city: "Singapore",
+      image: "https://lh5.googleusercontent.com/p/AF1QipNTgz0OGAOiUBQ0DsNtUK-cXZG6XcF8y2HIMcMx=w675-h390-n-k-no",
+      country: "Singapore",
+      description: "A city-state known for its cleanliness, green spaces, and diverse culture.",
+      landmarks: ["Marina Bay Sands", "Gardens by the Bay", "Sentosa Island"],
+      activities: ["Explore hawker centers", "Visit Universal Studios", "Walk the Supertree Grove"],
+      specialRecommendation: "Experience the vibrant nightlife at Clarke Quay.",
+      detailedDescription: "Singapore, a modern city-state, is celebrated for its cleanliness and green spaces. Iconic landmarks like Marina Bay Sands and Gardens by the Bay offer striking futuristic architecture and lush landscapes. Sentosa Island provides entertainment and relaxation with its beaches and theme parks. Singapore’s hawker centers are a culinary highlight, offering diverse and affordable street food. The city’s blend of modernity and cultural diversity makes it a vibrant and dynamic destination."
+    },
+    {
+      id: '23',
+      city: "Buenos Aires",
+      image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSldbnjXZiRX4mC-_RKivCx9Ynse8rFtZ6C8Lz8Dzbch8q9foqCjK5J4UCOjv4cCoJpPmUIx3Fyyzr4Cv-Jj5r9w7mtVHyVQ7WMi-Ubeg",
+      country: "Argentina",
+      description: "A city of tango, historic architecture, and passionate culture.",
+      landmarks: ["Casa Rosada", "La Boca", "Teatro Colón"],
+      activities: ["Watch a tango show", "Stroll through Recoleta Cemetery", "Enjoy Argentine steak"],
+      specialRecommendation: "Visit a local milonga to experience authentic tango.",
+      detailedDescription: "Buenos Aires, Argentina's capital, is a city known for its vibrant tango culture and rich architectural heritage. The historic Casa Rosada and the colorful neighborhood of La Boca are key attractions. The city’s European-inspired architecture is showcased in landmarks like the Teatro Colón. Visitors can experience tango shows and stroll through the historic Recoleta Cemetery. Buenos Aires offers a lively mix of cultural experiences and culinary delights, reflecting its passionate spirit."
+    },
+    {
+      id: '24',
+      city: "Vienna",
+      image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRJAqqDbrK8eEIj5GH4_6JYjhIYYQKljMxOovORyFCXq0VnfQwop1u_rHBime-g87sFl3dUf0sd5AX7rHqAKVdCID7n1jiTn4JhaCxoSQ",
+      country: "Austria",
+      description: "A city of classical music, stunning architecture, and rich history.",
+      landmarks: ["Schönbrunn Palace", "St. Stephen's Cathedral", "Belvedere Palace"],
+      activities: ["Attend a classical concert", "Explore art museums", "Enjoy coffee in a traditional café"],
+      specialRecommendation: "Visit the Christmas markets during winter for a magical experience.",
+      detailedDescription: "Vienna, with its classical music heritage and grand architecture, is a city of elegance and culture. Schönbrunn Palace, the former summer residence of the Habsburgs, offers opulent rooms and beautiful gardens. St. Stephen's Cathedral, with its stunning Gothic design, stands as a central landmark. The Vienna State Opera is renowned for its world-class performances. Enjoy a classical concert in one of Vienna’s historic concert halls or visit the city's historic coffee houses for a taste of its cultural traditions. Art enthusiasts will appreciate Vienna’s impressive collection of museums. The Vienna Ferris Wheel in the Prater Park provides a picturesque view of the city."
+    },
+    {
+      id: '25',
+      city: "Prague",
+      image: "https://lh5.googleusercontent.com/p/AF1QipPC9OKd83WLl0KruuN8W5iaTU1otiEH0a_5ng17=w675-h390-n-k-no",
+      country: "Czech Republic",
+      description: "A city of medieval architecture, charming streets, and rich history.",
+      landmarks: ["Prague Castle", "Charles Bridge", "Old Town Square"],
+      activities: ["Explore the castle grounds", "Take a boat cruise on the Vltava River", "Taste Czech beer"],
+      specialRecommendation: "Visit during Christmas for a magical market experience.",
+      detailedDescription: "Prague, known for its medieval charm and vibrant culture, offers a captivating experience. Prague Castle, a sprawling complex overlooking the city, includes the Gothic St. Vitus Cathedral and the Old Royal Palace. Charles Bridge, adorned with statues and offering scenic views of the Vltava River, is a historic pedestrian bridge. Old Town Square, with its Astronomical Clock and colorful buildings, is the heart of Prague’s historic center. Explore historic castles, stroll through picturesque streets, and enjoy traditional Czech cuisine in local restaurants. For a deeper understanding of Czech history and culture, a visit to Prague Castle is essential."
+    },
+    {
+      id: '26',
+      city: "Havana",
+      image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRCCnc40btLfOvGXuthEzTybEc7IjFeXVEDzXbKOYO-_ScyJTZfbDBQHw2WzSMWJMXzni-4m3eDCB7l3I2uEA-cUPG47XPlUwETQLMAGQ",
+      country: "Cuba",
+      description: "A city of colorful streets, vintage cars, and rich history.",
+      landmarks: ["El Malecón", "Old Havana", "Castillo del Morro"],
+      activities: ["Ride in a classic car", "Explore colonial architecture", "Enjoy live music"],
+      specialRecommendation: "Visit a cigar factory to see how Cuban cigars are made.",
+      detailedDescription: "Havana, Cuba’s lively capital, is renowned for its colorful streets and vintage cars. The city's historic center, Old Havana, is a UNESCO World Heritage site filled with colonial architecture and vibrant squares. El Malecón, the city's waterfront promenade, is perfect for evening strolls. Visitors can explore Castillo del Morro and experience Havana’s lively music scene. A tour of a local cigar factory offers insight into one of Cuba’s most famous exports, enhancing the city’s unique charm."
+    },
+    {
+      id: '27',
+      city: "Reykjavik",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQg-GCjS86akLIXRlsij0PxbqeZR8BtNdf8A&s",
+      country: "Iceland",
+      description: "A city of natural wonders, from geysers to glaciers.",
+      landmarks: ["Hallgrímskirkja", "Blue Lagoon", "Thingvellir National Park"],
+      activities: ["Relax in hot springs", "Explore waterfalls", "Chase the Northern Lights"],
+      specialRecommendation: "Visit during summer for the Midnight Sun or winter for the Northern Lights.",
+      detailedDescription: "Reykjavik, Iceland's capital, is a gateway to the country's stunning natural landscapes. The city is known for its modern architecture and vibrant cultural scene. Landmarks like Hallgrímskirkja and the Blue Lagoon offer unique experiences. Reykjavik’s proximity to natural wonders such as geysers and waterfalls makes it an ideal base for exploring Iceland’s rugged beauty. Whether chasing the Northern Lights in winter or enjoying the Midnight Sun in summer, Reykjavik offers a captivating experience."
+    },
+    {
+      id: '28',
+      city: "Florence",
+      image: "https://tourismmedia.italia.it/is/image/mitur/20210401173629-firenze-toscana-gettyimages-1145040590-2?wid=1600&hei=900&fit=constrain,1&fmt=webp",
+      country: "Italy",
+      description: "A city of Renaissance art, stunning architecture, and rich history.",
+      landmarks: ["Duomo", "Uffizi Gallery", "Ponte Vecchio"],
+      activities: ["Explore art museums", "Stroll through historic streets", "Taste Tuscan cuisine"],
+      specialRecommendation: "Climb to the top of the Duomo for a breathtaking view of the city.",
+      detailedDescription: "Florence, a jewel of Italy's Tuscany region, is renowned for its Renaissance art and architecture. The Duomo, with its iconic dome, and the Uffizi Gallery, home to masterpieces by Botticelli and Michelangelo, are must-see landmarks. The Ponte Vecchio, a historic bridge lined with shops, adds to the city’s charm. Florence’s cobblestone streets and historic buildings create a picturesque backdrop for exploring art, history, and Tuscan cuisine. The city’s rich cultural heritage makes it a captivating destination for art and history enthusiasts."
+    },
+    {
+      id: '29',
+      city: "Kyoto",
+      image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRYE81i-adXdp9IcCJ-OsnU1gamUG3qLo_QTrStebkcQeZiNtIGhmZ5oyBh4A_gNV_ytdwtngm82WSKEQPH5QWfEsQ5T7Zm0kBIThm04A",
+      country: "Japan",
+      description: "A city of ancient temples, traditional tea houses, and beautiful gardens.",
+      landmarks: ["Fushimi Inari Shrine", "Kinkaku-ji", "Arashiyama Bamboo Grove"],
+      activities: ["Attend a tea ceremony", "Explore traditional temples", "Walk through cherry blossoms"],
+      specialRecommendation: "Visit during the cherry blossom season for a truly magical experience.",
+      detailedDescription: "Kyoto, Japan's ancient capital, is famed for its classical temples and traditional tea houses. The city’s landmarks include the stunning Fushimi Inari Shrine, with its thousands of red torii gates, and the golden Kinkaku-ji. The Arashiyama Bamboo Grove offers a serene escape into nature. Kyoto’s historic streets are perfect for exploring traditional crafts and participating in tea ceremonies. Visiting during cherry blossom season enhances the city’s enchanting beauty, making it a truly magical experience."
+    }
+  ];
+  
+  export default destinations;
